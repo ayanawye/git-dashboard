@@ -1,0 +1,31 @@
+.main{
+  padding: 30px 0;
+  &__input{
+    width: 80%;
+    height: 30px;
+    color: #fff;
+    border-radius: 6px;
+    border: 1px solid #5f5f5f;
+    position: relative;
+    padding-left: 40px;
+    margin-bottom: 30px;
+  }
+  &__svg{
+    position: absolute;
+    left: 250px;
+    top: 105px;
+  }
+  &__name{
+    padding-bottom: 20px;
+    column-gap: 10px;
+    & svg{
+      margin-bottom: 10px;
+    }
+  }
+}
+.title{
+  color: #fff;
+}
+.cat__svg{
+  width: 100%;
+}
