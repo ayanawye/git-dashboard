@@ -13,7 +13,7 @@ const MainPage = () => {
   const [currentPage, setCurrentPage] = useState(1)
   const [loading, setLoading] = useState(false)
   const [search, setSearch] = useState('')
-  const [repositoriesPerPage] = useState(10)
+  const [repositoriesPerPage] = useState(15)
 
   useEffect(() => {
     if(search === ''){
@@ -80,7 +80,8 @@ const MainPage = () => {
         <Pagination 
         repositoriesPerPage={repositoriesPerPage} 
         totalRepocitories={repository.length}
-        paginate={paginate}/>
+        paginate={paginate}
+        currentPage={currentPage}/>
         :
         <div></div>
       }
