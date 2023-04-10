@@ -13,7 +13,7 @@ const MainPage = () => {
   const [currentPage, setCurrentPage] = useState(1)
   const [loading, setLoading] = useState(false)
   const [search, setSearch] = useState('')
-  const [repositoriesPerPage] = useState(15)
+  const [repositoriesPerPage] = useState(10)
 
   useEffect(() => {
     if(search === ''){
