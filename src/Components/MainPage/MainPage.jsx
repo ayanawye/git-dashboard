@@ -16,10 +16,10 @@ const MainPage = () => {
   const [repositoriesPerPage] = useState(10)
 
   useEffect(() => {
-      if(search === '' && search.length === 0){
+      if(search === '' || search.length === 0){
         const getTopRepositories = async () => {
           setLoading(true)
-          const resp = await axios.get(`https://api.github.com/search/repositories?q=stars:%3E1&sort=stars&order=desc&per_page=10`, Config)
+          const resp = await axios.get(`https://api.github.com/search/repositories?q=stars:%3E1&sort=stars&order=desc&per_page=10`)
           const data = await resp.data.items
           setRepository(data)
           setLoading(false)
@@ -30,7 +30,7 @@ const MainPage = () => {
       } else{
         const getData = async () => {
           setLoading(true)
-          const resp = await axios.get(`https://api.github.com/search/repositories?q=${search}&per_page=100`, Config)
+          const resp = await axios.get(`https://api.github.com/search/repositories?q=${search}&per_page=100`)
           const data = await resp.data.items
           setRepository(data)
           setLoading(false)
@@ -39,18 +39,7 @@ const MainPage = () => {
           getData()
         }, 2000)
       }
-
-
 }, [search])
-
-  // const getData = async () => {
-  //   setLoading(true)
-  //   const resp = await axios.get(`https://api.github.com/search/repositories?q=${search}&per_page=100`, Config)
-  //   const data = await resp.data.items
-  //   console.log(data);
-  //   setRepository(data)
-  //   setLoading(false)
-  // }
 
   const lastRepositoryIndex = currentPage * repositoriesPerPage
   const firstRepositoryIndex = lastRepositoryIndex - repositoriesPerPage
